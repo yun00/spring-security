@@ -1,0 +1,7 @@
+package com.yun.security.core.social.qq;
+
+import org.springframework.social.config.annotation.SocialConfigurerAdapter;
+
+public class SocialConfig extends SocialConfigurerAdapter {
+
+}

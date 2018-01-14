@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>.org.eclipse.jdt.core.external.folders</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>.link0</name>
+			<type>2</type>
+			<location>G:/SpringBoot/Project/spring-security/spring-security-core/target/classes</location>
+		</link>
+		<link>
+			<name>.link1</name>
+			<type>2</type>
+			<location>G:/SpringBoot/Project/spring-security/spring-security-browser/target/classes</location>
+		</link>
+	</linkedResources>
+</projectDescription>

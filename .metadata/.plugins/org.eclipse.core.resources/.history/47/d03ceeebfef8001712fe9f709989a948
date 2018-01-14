@@ -1,0 +1,5 @@
+package com.yun.security.core.social.qq;
+
+public class YunSpringSocialConfigurer {
+
+}

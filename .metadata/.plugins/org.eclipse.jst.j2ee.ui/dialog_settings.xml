@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="J2EE_EXPORT_OVERWRITE"/>
+	<item value="false" key="J2EE_EXPORT_SOURCE"/>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="C:\Users\Administrator\Desktop\spring-security-browser.war"/>
+		<item value="C:\Users\Administrator\Desktop\spring-security-core.war"/>
+		<item value="C:\Users\Administrator\Desktop\spring-security-demo.war"/>
+		<item value="C:\Users\Administrator\Desktop\spring-security.war"/>
+		<item value="C:\Users\Administrator\Desktop\spring-security-app.war"/>
+	</list>
+</section>

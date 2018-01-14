@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/imooc-security" element2="/imooc-security-app" element3="/imooc-security-browser" element4="/imooc-security-core" element5="/imooc-security-demo" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1515304395891"/>
+</session>

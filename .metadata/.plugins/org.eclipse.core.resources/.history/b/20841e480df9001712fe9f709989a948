@@ -1,0 +1,28 @@
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_activiti?useUnicode=yes
+spring.datasource.username=root
+spring.datasource.password=123456
+
+spring.session.store-type=none
+
+server.port = 8080
+
+#security.basic.enabled=false
+
+#spring.security.browser.loginPage=/demo-signin.html
+
+#spring.security.browser.loginType=REDIRECT
+spring.security.browser.loginType=JSON
+
+spring.security.code.image.length =4
+
+spring.security.code.image.widht =100
+
+spring.security.code.image.expireIn = 36000
+
+spring.security.code.image.url=/user,/user/*
+
+spring.security.social.qq.app-id = 101386962
+spring.security.social.qq.app-secret = 2a0f820407df400b84a854d054be8b6a 
+spring.security.social.filterProcessesUrl = /login
+#spring.security.social.qq.providerId = callback.do

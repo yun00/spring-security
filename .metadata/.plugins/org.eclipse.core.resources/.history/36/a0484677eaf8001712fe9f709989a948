@@ -1,0 +1,5 @@
+package com.yun.security.core.properties;
+
+public class QQproperties extends SocialProperties{
+
+}

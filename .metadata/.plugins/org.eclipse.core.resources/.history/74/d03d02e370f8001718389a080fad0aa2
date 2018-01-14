@@ -1,0 +1,7 @@
+package com.yun.security.core.social.qq.connect;
+
+import org.springframework.social.connect.support.OAuth2ConnectionFactory;
+
+public class QQConnectionFactory extends OAuth2ConnectionFactory<QQ>{
+
+}

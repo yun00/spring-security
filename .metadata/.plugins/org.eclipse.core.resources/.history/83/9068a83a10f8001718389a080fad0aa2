@@ -1,0 +1,94 @@
+package com.yun.security.browser;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import com.yun.security.browser.authentication.MyAuthenticationFailHandler;
+import com.yun.security.browser.authentication.MyAuthenticationSuccessHandler;
+import com.yun.security.core.properties.SecurityProperties;
+import com.yun.security.core.validate.code.ValidateCodeFilter;
+
+@Configuration
+@EnableWebSecurity
+public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter{
+
+	@Autowired 
+	SecurityProperties securityProperties;
+	
+	@Autowired
+	private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
+	
+	@Autowired
+	private MyAuthenticationFailHandler myAuthenticationFailHandler;
+	
+	@Bean
+	public PasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	@Bean
+	public PersistentTokenRepository persistenceTokenRepository(){
+		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+		tokenRepository.setDataSource(dataSource);
+		//tokenRepository.setCreateTableOnStartup(true);
+		return tokenRepository;
+		
+	}
+	
+	/*
+	 * 对每个请求进行细粒度安全性控制的关键在于重载configure(HttpSecurity)方法
+	 * 
+	 * @see org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter#configure(org.springframework.security.config.annotation.web.builders.HttpSecurity)
+	 */
+	@Override
+    protected void configure(HttpSecurity http) throws Exception{
+        ValidateCodeFilter validateCodeFilter =new ValidateCodeFilter();
+
+        validateCodeFilter.setAuthenticationFailureHandler(myAuthenticationFailHandler);
+        
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+            .formLogin()
+            .loginPage("/login.html") //跳转的登录页/authentication/require
+            .loginProcessingUrl("/authentication/form") //登录时的请求
+            .successHandler(myAuthenticationSuccessHandler) //表单登录成功时使用我们自己写的处理类
+            .failureHandler(myAuthenticationFailHandler) //表单登录失败时使用我们自己写的处理类
+            .and()
+            
+            .rememberMe()
+            .tokenRepository(persistenceTokenRepository())
+            .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
+            .userDetailsService(userDetailsService) //指定登录用户、密码和权限
+            .and()
+            
+            /*
+             * 调用HttpSecurity类的authorizeRequests()方法所返回的对象的方法来配置请求级别的安全性细节
+             */
+            .authorizeRequests()
+            //antMatchers()对指定路径的请求需要进行认证
+            .antMatchers(securityProperties.getBrowser().getLoginPage(),"/code/image").permitAll()
+            //anyRequest()的调用说明其他所有的请求都是允许的,不需要认证和任何的授权
+            .anyRequest()
+            .authenticated()
+            .and()
+            .csrf().disable();
+    }
+	
+}

@@ -1,0 +1,112 @@
+package com.yun.security.browser;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import com.yun.security.browser.authentication.MyAuthenticationFailHandler;
+import com.yun.security.browser.authentication.MyAuthenticationSuccessHandler;
+import com.yun.security.core.properties.SecurityProperties;
+import com.yun.security.core.validate.code.ValidateCodeFilter;
+
+@Configuration
+@EnableWebSecurity
+public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter{
+
+	@Autowired 
+	SecurityProperties securityProperties;
+	
+	@Autowired
+	private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
+	
+	@Autowired
+	private MyAuthenticationFailHandler myAuthenticationFailHandler;
+	
+	@Bean
+	public PasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	@Bean
+	public PersistentTokenRepository persistenceTokenRepository(){
+		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+		tokenRepository.setDataSource(dataSource);
+		//tokenRepository.setCreateTableOnStartup(true);
+		return tokenRepository;
+		
+	}
+	
+	/*
+	 * 对每个请求进行细粒度安全性控制的关键在于重载configure(HttpSecurity)方法
+	 * 
+	 * @see org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter#configure(org.springframework.security.config.annotation.web.builders.HttpSecurity)
+	 */
+	@Override
+    protected void configure(HttpSecurity http) throws Exception{
+        ValidateCodeFilter validateCodeFilter =new ValidateCodeFilter();
+
+        validateCodeFilter.setAuthenticationFailureHandler(myAuthenticationFailHandler);
+        
+        http
+        
+        	/*
+        	 * 在UsernamePasswordAuthenticationFilter过滤器之前添加短信验证码过滤器
+        	 */
+        	//.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+        	
+	        /*
+	         * 表单登录适用于浏览器向restful api发起请求;如果是后台程序直接发起请求访问restful api,则设为HTTP BASIC模式
+	         */
+            .formLogin()
+            .loginPage("/login.html") //跳转的登录页/authentication/require
+            .loginProcessingUrl("/authentication/form") //登录时的请求
+            .successHandler(myAuthenticationSuccessHandler) //表单登录成功时使用我们自己写的处理类
+            .failureHandler(myAuthenticationFailHandler) //表单登录失败时使用我们自己写的处理类
+            .and()
+            
+            /*
+             * 调用rememberMe()方法启用记住我功能,通过在cookie中存储一个token完成
+             */
+            .rememberMe()
+            //指定保存token的仓库，此处实现为保存到指定的数据库中
+            .tokenRepository(persistenceTokenRepository())
+            //tokenValiditySeconds()指定token的有效时间
+            .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
+            //指定登录用户、密码和权限
+            .userDetailsService(userDetailsService) 
+            .and()
+            
+            /*
+             * 调用HttpSecurity类的authorizeRequests()方法所返回的对象的方法来配置请求级别的安全性细节
+             */
+            .authorizeRequests()
+            //antMatchers()对指定路径的请求需要进行认证,这个方法以ant开头表示路径支持Ant风格的通配符,permitAll()方法运行请求没有任何的安全限制
+            .antMatchers(securityProperties.getBrowser().getLoginPage(),"/code/image").permitAll()
+            //anyRequest()指定了匹配之外的所有请求,authenticated()要求在执行该请求时,必须已经登录了应用
+            .anyRequest().authenticated()
+            .and()
+            
+            /*
+             * 禁用CSRF(跨站请求伪造)防护功能
+             */
+            .csrf().disable();
+    }
+	
+}

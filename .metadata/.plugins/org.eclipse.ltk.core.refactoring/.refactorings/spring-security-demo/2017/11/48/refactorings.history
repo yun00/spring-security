@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring-security-demo/src/main/resources/resources/demo-signin.login.html&apos; to &apos;demo-signin.html&apos;" description="Rename resource &apos;demo-signin.login.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/resources/demo-signin.login.html" name="demo-signin.html" stamp="1511682932251" updateReferences="true"/>
+</session>
