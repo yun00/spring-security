@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="getAuthToken" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Creating new persistent"/>
-			<item value="insertTokenSql"/>
-			<item value="DEF_INSERT_TOKEN_SQL"/>
-			<item value="authenticationManager"/>
-			<item value="userDetailsService"/>
-			<item value="createNewToken"/>
-			<item value="CREATE_TABLE_SQL"/>
-			<item value="sessionStrategy"/>
+			<item value="getAuthToken"/>
+			<item value="attemptAuthService"/>
+			<item value="redirectUri"/>
+			<item value="ANDYI"/>
+			<item value="AND"/>
+			<item value="ANY"/>
+			<item value="Anyim"/>
+			<item value="getRequestedProviderId"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="F:\git_center\spring-social-qq\logback-master\logback-master"/>
+	</list>
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
 		<item value="org.aspectj:1.8.10.201703272045"/>
@@ -122,10 +125,17 @@
 		<item value="" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
 		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
 	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+		</list>
+	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-demo/src/main/java/com/yun/web/controller/UserController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/authentication/MyAuthenticationFailHandler.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/properties/SecurityProperties.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/resources/resources/login.html&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/BrowserSecurityController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/BrowserSecurityConfig.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/validate/code/ValidateCodeFilter.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/validate/code/ValidatorController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-demo/src/main/java/com/yun/web/controller/UserController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/authentication/MyAuthenticationFailHandler.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/properties/SecurityProperties.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/BrowserSecurityController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/validate/code/ValidateCodeFilter.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/validate/code/ValidatorController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/resources/resources/login.html&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-core/src/main/java/com/yun/security/core/properties/BrowserProperties.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/spring-security-browser/src/main/java/com/yun/security/browser/BrowserSecurityConfig.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
 		<item value="false" key="ShowDerived"/>
 		<section name="DialogBoundsSettings">

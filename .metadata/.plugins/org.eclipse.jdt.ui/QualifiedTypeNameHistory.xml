@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.codehaus.jackson.map.ObjectMapper"/>
-<fullyQualifiedTypeName name="com.yun.security.browser.authentication.MyAuthenticationSuccessHandler"/>
-<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
-<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-<fullyQualifiedTypeName name="com.yun.security.browser.authentication.MyAuthenticationFailHandler"/>
-<fullyQualifiedTypeName name="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"/>
-<fullyQualifiedTypeName name="com.yun.security.core.properties.LoginType"/>
 <fullyQualifiedTypeName name="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
@@ -35,8 +28,6 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="org.springframework.util.AntPathMatcher"/>
 <fullyQualifiedTypeName name="org.springframework.web.context.request.ServletWebRequest"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
-<fullyQualifiedTypeName name="com.yun.security.core.properties.SecurityProperties"/>
 <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean"/>
 <fullyQualifiedTypeName name="com.yun.security.core.validate.code.ValidateCodeGenerator"/>
 <fullyQualifiedTypeName name="org.springframework.security.web.authentication.rememberme.PersistentTokenRepository"/>
@@ -44,7 +35,6 @@
 <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.social.oauth2.AbstractOAuth2ApiBinding"/>
 <fullyQualifiedTypeName name="org.springframework.social.oauth2.TokenStrategy"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
@@ -56,8 +46,18 @@
 <fullyQualifiedTypeName name="org.springframework.social.connect.support.OAuth2ConnectionFactory"/>
 <fullyQualifiedTypeName name="com.yun.security.core.social.qq.api.QQ"/>
 <fullyQualifiedTypeName name="org.springframework.social.config.annotation.EnableSocial"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="org.springframework.security.crypto.encrypt.Encryptors"/>
 <fullyQualifiedTypeName name="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository"/>
+<fullyQualifiedTypeName name="org.springframework.social.security.SocialUserDetailsService"/>
+<fullyQualifiedTypeName name="org.springframework.social.security.SocialUser"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.social.SocialProperties"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.social.SocialAutoConfigurerAdapter"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.yun.security.core.social.qq.connect.QQConnectionFactory"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="org.springframework.social.security.SpringSocialConfigurer"/>
+<fullyQualifiedTypeName name="org.springframework.social.security.SocialAuthenticationFilter"/>
+<fullyQualifiedTypeName name="com.yun.security.core.properties.SecurityProperties"/>
 </qualifiedTypeNameHistroy>
